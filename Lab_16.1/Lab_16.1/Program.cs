@@ -16,64 +16,54 @@ namespace Lab_16._1
     {
         static void Main(string[] args)
         {
-            string path = "C:/Products.json";
             string jsonString;
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-            }
-            StreamWriter infoW = new StreamWriter(path);
             Product[] products = new Product[5];
-            Console.WriteLine("Введите данные по 5 товарам\n");
-
-            for (int i = 0; i <= 4; i++)
+            Console.WriteLine("Введите данные по 5 товарам:");
+            for (int i = 0; i < 5; i++)
             {
-
                 Console.WriteLine($"Введите код товара № {i + 1}:");
-                int id = Convert.ToInt32(Console.ReadLine());
+                int idProduct = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine($"Введите название товара № {i + 1}:");
-                string name = Console.ReadLine();
+                string nameProduct = Console.ReadLine();
                 Console.WriteLine($"Введите цену товара № {i + 1}:");
-                double price = Convert.ToDouble(Console.ReadLine());
-
-                Product product = new Product(id, name, price);
+                double priceProduct = Convert.ToDouble(Console.ReadLine());
+                Product product = new Product(idProduct, nameProduct, priceProduct);
                 products[i] = product;
                 Console.WriteLine();
             }
-
             JsonSerializerOptions options = new JsonSerializerOptions()
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
+            StreamWriter info = new StreamWriter(@"C:\info.json");
             for (int i = 0; i < products.Length; i++)
             {
                 jsonString = JsonSerializer.Serialize(products[i], options);
-                infoW.Write(jsonString);
+                info.Write(jsonString);
             }
-            infoW.Close();
-            StreamReader infoR = new StreamReader(path);
-            string jsonStringR = infoR.ReadToEnd();
-            infoR.Close();
-            string str = jsonStringR.Replace("{", "\t{");
-            string[] strArrive = str.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            info.Close();
+            StreamReader infoRead = new StreamReader(@"C:\info.json");
+            string jsonStringRead = infoRead.ReadToEnd();
+            infoRead.Close();
+            string strReplace = jsonStringRead.Replace("{", "\t{");
+            string[] stringArrive = strReplace.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
             double maxPrice = 0;
             int count = 0;
-            Product[] productR = new Product[5];
-            for (int i = 0; i < strArrive.Length; i++)
+            Product[] productRead = new Product[5];
+            for (int i = 0; i < stringArrive.Length; i++)
             {
-                productR[i] = JsonSerializer.Deserialize<Product>(strArrive[i], options);
-                if (maxPrice < productR[i].PriceProduct)
+                productRead[i] = JsonSerializer.Deserialize<Product>(stringArrive[i], options);
+                if (maxPrice < productRead[i].PriceProduct)
                 {
-                    maxPrice = productR[i].PriceProduct;
+                    maxPrice = productRead[i].PriceProduct;
                     count = i;
                 }
             }
-
-            Console.WriteLine($"{productR[count].NameProduct} - самый дорогой товар");
+            Console.WriteLine($"{productRead[count].NameProduct} - самый дорогой товар");
             Console.ReadKey();
         }
-        public class Product
+        class Product
         {
             [JsonPropertyName("Код товара")]
             public int IdProduct { get; set; }
@@ -81,11 +71,11 @@ namespace Lab_16._1
             public string NameProduct { get; set; }
             [JsonPropertyName("Цена товара")]
             public double PriceProduct { get; set; }
-            public Product(int id, string name, double price)
+            public Product(int idProduct, string nameProduct, double priceProduct)
             {
-                IdProduct = id;
-                NameProduct = name;
-                PriceProduct = price;
+                IdProduct = idProduct;
+                NameProduct = nameProduct;
+                PriceProduct = priceProduct;
             }
         }
     }
