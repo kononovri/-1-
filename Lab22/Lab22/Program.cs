@@ -20,8 +20,7 @@ namespace Lab22
             {
                 array[i] = rnd.Next(0, random);
             }
-            Func<int> func1 = new Func<int>(() => Sum(array));
-            Task<int> task1 = new Task<int>(func1);
+            Task<int> task1 = new Task<int>(() => Sum(array));
             Action<Task, object> actionTask = new Action<Task, object>(Max);
             Task task2 = task1.ContinueWith(actionTask, array);
             task1.Start();
