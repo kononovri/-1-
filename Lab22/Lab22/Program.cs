@@ -17,7 +17,7 @@ namespace Lab22
             int[] array = new int[number];
             Random rnd = new Random();
             for (int i = 0; i < array.Length; i++)
-            {
+            { 
                 array[i] = rnd.Next(0, random);
             }
             Task<int> task1 = new Task<int>(() => Sum(array));
