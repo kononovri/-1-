@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab07WPFAPP"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="White">
     <Window.CommandBindings>
@@ -31,16 +33,8 @@
         </Menu>
         <ToolBarTray Grid.Row="1" Margin="0,0,0,10" Background="LightGray">
             <ToolBar Margin="5" Padding="5">
-                <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="200" SelectionChanged="ComboBox_SelectionChanged" >
-                    <TextBlock Text="Arial"/>
-                    <TextBlock Text="Times New Roman"/>
-                    <TextBlock Text="Verdana"/>
-                </ComboBox>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="40" SelectionChanged="ComboBox_SelectionChanged_1">
-                    <TextBlock Text="14"/>
-                    <TextBlock Text="16"/>
-                    <TextBlock Text="18"/>
-                </ComboBox>
+                <ComboBox x:Name="comboBoxFonts" Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged"/>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="40" ItemsSource="{StaticResource fontsSize}" SelectionChanged="ComboBox_SelectionChanged_1"/>
             </ToolBar>
             <ToolBar Margin="5" Padding="5">
                 <Button x:Name="buttonBold" Height="45" Width="35" Click="ButtonBold_Click">

@@ -27,11 +27,22 @@ namespace Lab07WPFAPP
         public MainWindow()
         {
             InitializeComponent();
+            FillFontComboBox(comboBoxFonts);
+            textBox.TextDecorations = null;
+        }
+
+        public void FillFontComboBox(ComboBox comboBoxFonts)
+        {
+            foreach (FontFamily fontsFamily in Fonts.SystemFontFamilies)
+            {
+                comboBoxFonts.Items.Add(fontsFamily.Source);
+            }
+            comboBoxFonts.SelectedIndex = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontName = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            string fontName = ((sender as ComboBox).SelectedItem as String);
             if (textBox != null)
             {
                 textBox.FontFamily = new FontFamily(fontName);
@@ -41,7 +52,7 @@ namespace Lab07WPFAPP
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            double fontSize = Convert.ToDouble(((sender as ComboBox).SelectedItem as TextBlock).Text);
+            double fontSize = Convert.ToDouble(((sender as ComboBox).SelectedItem as String));
             if (textBox != null)
             {
                 textBox.FontSize = fontSize;
