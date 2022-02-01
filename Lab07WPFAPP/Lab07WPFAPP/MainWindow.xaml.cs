@@ -24,11 +24,29 @@ namespace Lab07WPFAPP
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            List<string> styles = new List<string>() { "Светлая тема", "Темная тема" };
+            styleBox.ItemsSource = styles;
+            styleBox.SelectedIndex = 0;
+            styleBox.SelectionChanged += ThemeChange;
             FillFontComboBox(comboBoxFonts);
             textBox.TextDecorations = null;
+        }
+
+        public void ThemeChange(object sender, SelectionChangedEventArgs e)
+        {
+            int styleIndex = styleBox.SelectedIndex;
+            Uri uri = new Uri("Light.xaml", UriKind.Relative);
+            if (styleIndex == 1)
+            {
+                uri = new Uri("Dark.xaml", UriKind.Relative);
+            }
+            ResourceDictionary resource = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resource);
         }
 
         public void FillFontComboBox(ComboBox comboBoxFonts)
