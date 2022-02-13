@@ -1,0 +1,34 @@
+﻿<Window x:Class="Lab11WPFAPP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab11WPFAPP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <EllipseGeometry x:Key="ell1" Center="150,150" RadiusX="100" RadiusY="100"/>
+        <EllipseGeometry x:Key="ell2" Center="150,150" RadiusX="70" RadiusY="70"/>
+    </Window.Resources>
+    <Grid>
+        <Path Fill="Red" Stroke="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Union">
+                    <CombinedGeometry.Geometry1>
+                        <CombinedGeometry GeometryCombineMode="Exclude"
+                                  Geometry1="{StaticResource ell1}"
+                                  Geometry2="{StaticResource ell2}" />
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <RectangleGeometry Rect="-70 200 140 30">
+                            <RectangleGeometry.Transform>
+                                <RotateTransform Angle="-45"/>
+                            </RectangleGeometry.Transform>
+                        </RectangleGeometry>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+
+        </Path>
+    </Grid>
+</Window>
