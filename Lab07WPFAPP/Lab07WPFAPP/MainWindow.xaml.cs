@@ -32,7 +32,7 @@ namespace Lab07WPFAPP
             styleBox.ItemsSource = styles;
             styleBox.SelectedIndex = 0;
             styleBox.SelectionChanged += ThemeChange;
-            FillFontComboBox(comboBoxFonts);
+            FillFontComboBox(cbFonts);
             textBox.TextDecorations = null;
         }
 
@@ -49,13 +49,13 @@ namespace Lab07WPFAPP
             Application.Current.Resources.MergedDictionaries.Add(resource);
         }
 
-        public void FillFontComboBox(ComboBox comboBoxFonts)
+        public void FillFontComboBox(ComboBox cbFonts)
         {
             foreach (FontFamily fontsFamily in Fonts.SystemFontFamilies)
             {
-                comboBoxFonts.Items.Add(fontsFamily.Source);
+                cbFonts.Items.Add(fontsFamily.Source);
             }
-            comboBoxFonts.SelectedIndex = 0;
+            cbFonts.SelectedIndex = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
