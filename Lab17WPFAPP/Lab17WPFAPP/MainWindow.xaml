@@ -1,0 +1,14 @@
+﻿<Window x:Class="Lab17WPFAPP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab17WPFAPP"
+        mc:Ignorable="d"
+        Title="ColorPicker" Height="180" Width="400" MinHeight="170" MinWidth="250" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <local:ColorPickerUserControl x:Name="colorPicker" Margin="2" Padding="3" Color="LightSlateGray"/>
+        </StackPanel>
+    </Grid>
+</Window>

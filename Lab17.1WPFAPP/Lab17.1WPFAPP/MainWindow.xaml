@@ -1,0 +1,18 @@
+﻿<Window x:Class="Lab17._1WPFAPP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab17._1WPFAPP"
+        Title="ColorPicker" Height="250" Width="400" MinHeight="230" MinWidth="250" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <local:ColorPickerUserControl>
+            Name="colorPicker" 
+            Margin="2" 
+            Padding="3" 
+            ColorChanged="colorPicker_ColorChanged" 
+            Color="Yellow">
+        </local:ColorPickerUserControl>
+        <Button Click="cmdGet_Click" Margin="5,20,5,0" Padding="2" FontWeight="Black" Content="Получить цвет"/>
+        <Button Click="cmdSet_Click" Margin="5,0,5,0" Padding="2" FontWeight="Black" Content="Сбросить цвет"/>
+        <TextBlock Name="lblColor" Margin="10" FontWeight="Black" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
