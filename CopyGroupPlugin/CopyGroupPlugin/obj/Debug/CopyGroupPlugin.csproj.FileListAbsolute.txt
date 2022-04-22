@@ -1,6 +1,0 @@
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\bin\Debug\CopyGroupPlugin.dll
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\bin\Debug\CopyGroupPlugin.pdb
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\obj\Debug\CopyGroupPlugin.csproj.AssemblyReference.cache
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\obj\Debug\CopyGroupPlugin.csproj.CoreCompileInputs.cache
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\obj\Debug\CopyGroupPlugin.dll
-\\mycloudex2ultra\public\УЧЕБА\ИТМО\4 модуль\CopyGroupPlugin\CopyGroupPlugin\obj\Debug\CopyGroupPlugin.pdb
